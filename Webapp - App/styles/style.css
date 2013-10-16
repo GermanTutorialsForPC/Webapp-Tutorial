@@ -7,6 +7,59 @@ body {
 	background-attachment:fixed;	
 }
 
+#content {
+	width:auto;
+	padding:10px 10px 70px;
+	color:#FFF;	
+}
+
+#contentWithTopMenu {
+	width:auto;
+	padding:25px 10px 70px;
+	color:#FFF;	
+}
+
+#content h1 {
+	margin-top:0;
+	padding-top:0;	
+}
+
+/**Top Menu**/
+#topMenu {
+	position:fixed;
+	top:0;
+	left:0;
+	padding:10px;
+	background-color:rgba(255,255,255,0.8);
+	width:100%;	
+	color:#09F;
+}
+
+#backArrow {
+	border-top:2px solid #09F;
+	border-left:2px solid #09F;
+	width:20px;
+	height:20px;
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);	
+	display:inline-block;
+	margin-bottom:-5px;
+}
+
+.topMenuLink {
+	color:#09F;
+	text-decoration:none;
+}
+
+.topMenuHl {
+	text-align:center;
+	display:block;
+	margin-top:-20px;
+	font-size:18px;	
+}
+
 /**Navigation**/
 #navigation {
 	position:fixed;
@@ -61,6 +114,14 @@ body {
 	background-image:url(../images/more.svg);	
 }
 
+#moreActive {
+	color:#3CF;
+}
+
+#moreActive:before {
+	background-image:url(../images/more_active.svg);	
+}
+
 /**Inhals Klassen und IDs**/
 #logo {
 	background-image:url(../images/logo.svg);
@@ -73,6 +134,17 @@ body {
 	left:30%;
 	top:0;
 	display:block; 	
+}
+
+/**Diverse Links**/
+.moreLink {
+	display:block;
+	width:auto;
+	padding:10px 0;
+	border-bottom:2px solid #FFF;
+	color:#FFF;
+	text-decoration:none;
+	font-size:18px;	
 }
 
 @media only screen and (max-width:400px) {
@@ -120,5 +192,10 @@ body {
 	
 	#more {
 		background-image:url(../images/more.svg);	
+	}
+	
+	#moreActive {
+		color:#3CF;
+		background-image:url(../images/more_active.svg);	
 	}
 }
