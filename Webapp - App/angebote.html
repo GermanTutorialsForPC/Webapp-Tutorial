@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Frische Discount Webapp</title>
+<link rel="stylesheet" href="styles/style.css" type="text/css"/>
+
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script>
+$.ajax({
+	url: "PATH/TO/WEBAPP/backend/angebote.php",
+	dataType:"json"}).success(function(data) {
+		for(var i = 0; i < data.length; i++) {
+			$('#content').append('<div class="contentRow"><img src="PATH/TO/IMAGES/' + data[i].productImage +'" alt=""' + data[i].productName + '/><div id="descSale' + i + '"><h3></h3><span class="redPrice"></span><div class="metaPrice"><span class="percent"></span><span class="whitePrice"></span></div><p style="clear:both;"></p></div><p style="clear:both;"></p></div>');	
+			$('#descSale' + i + ' h3').append(data[i].productName);
+			$('#descSale' + i + ' .redPrice').append(data[i].redPrice);
+			$('#descSale' + i + ' .whitePrice').append(data[i].whitePrice);
+			$('#descSale' + i + ' .percent').append(data[i].percent);
+		}
+	});
+</script>
+</head>
+
+<body>
+<div id="content">
+	<h1>Angebote</h1>
+    
+</div>
+<div id="navigation">
+	<a href="#" class="icon" id="sales">Angebote</a>
+    <a href="#" class="icon" id="list">Einkaufsliste</a>
+    <a href="#" class="icon" id="shops">Shops</a>
+    <a href="#" class="icon" id="bbq">Grillwetter</a>
+    <a href="#" class="icon" id="more">Mehr</a>
+</div>
+</body>
+</html>

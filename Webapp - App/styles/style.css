@@ -22,6 +22,53 @@ body {
 #content h1 {
 	margin-top:0;
 	padding-top:0;	
+	font-weight:400;
+}
+
+.contentRow {
+	display:block;
+	padding:0;
+	border-bottom:1px solid rgba(255,255,255,0.5);
+	clear:both;	
+	padding:10px;
+}
+
+.contentRow div {
+	display:block;
+	float:left;	
+}
+
+.contentRow div h3 {
+	padding:0;
+	margin:0;	
+}
+
+.contentRow img {
+	height:50px;
+	width:auto;
+	display:block;
+	margin-right:10px;
+	float:left;	
+}
+
+.redPrice {
+	font-size:1.25em;
+	padding-right:10px;
+	display:block;
+	float:left;
+	padding-top:3px;	
+}
+
+.metaPrice span {
+	display:block;	
+}
+
+.percent, .whitePrice {
+	font-size:0.75em;	
+}
+
+.whitePrice {
+	text-decoration:line-through;	
 }
 
 /**Top Menu**/
