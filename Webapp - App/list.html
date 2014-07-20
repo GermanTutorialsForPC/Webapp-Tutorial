@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Frische Discount Webapp</title>
+<link rel="stylesheet" href="styles/style.css" type="text/css"/>
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	function saveData() {
+		localStorage.setItem(document.forms[0]["productName"].value, document.forms[0]["qty"].value);
+		readData();
+	}
+
+	function readData() {
+		var content = "";
+		for(var key in localStorage) {
+			content += "<div class=\"listEntry\"><span class=\"productName\">"; 
+	  		content += key; 
+	  		content += "</span><span class=\"QTY\">"; 
+	  		content += localStorage.getItem(key) + "</span>";
+	  		content += "<a href=\"#\" removeKey=\"" + key + "\" class=\"deleteLink\">Löschen</a>"
+	  		content += "<a href=\"#\" updateKey=\"" + key + "\" class=\"updateLink\">Ändern</a>"
+	  		content += "</div>";
+		}
+		$("#myList").html(content);
+	}
+
+	function removeData(key) {
+		localStorage.removeItem(key);
+		readData();
+	}
+
+	function updateData(key) {
+		document.forms[0]["productName"].value = key;
+		document.forms[0]["qty"].value = localStorage.getItem(key);
+	}
+
+	$(document).ready(function(){
+		readData();
+		$('.deleteLink').click(function(){
+			removeData($(this).attr("removeKey"));
+			readData()
+		});
+		$('.updateLink').click(function(){
+			updateData($(this).attr("updateKey"));
+			readData()
+		});
+	});
+
+</script>
+</head>
+
+<body>
+<div id="content">
+	<h1>Einkaufsliste</h1>
+	<h2>Neues Element</h2>
+	<form onsubmit="saveData(); return false;">
+		<p><lable for="productName" class="listLable">Produkt:</lable><input type="text" id="productName" name="productName"/></p>
+		<p><lable for="qty" class="listLable">Menge:</lable><input type="text" id="qty" name="qty"/></p>
+		<p><input type="submit" value="Speichern">
+	</form>
+	<h2>Meine Liste</h2>
+	<div id="myList">
+
+	</div>
+</div>
+<div id="navigation">
+	<a href="#" class="icon" id="sales">Angebote</a>
+    <a href="#" class="icon" id="list">Einkaufsliste</a>
+    <a href="#" class="icon" id="shops">Shops</a>
+    <a href="#" class="icon" id="bbq">Grillwetter</a>
+    <a href="#" class="icon" id="more">Mehr</a>
+</div>
+</body>
+</html>

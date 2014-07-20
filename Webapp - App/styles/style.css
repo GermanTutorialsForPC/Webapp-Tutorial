@@ -59,6 +59,11 @@ body {
 	padding-top:3px;	
 }
 
+.listLable {
+	width:75px;
+	display: inline-block;
+}
+
 .metaPrice span {
 	display:block;	
 }
