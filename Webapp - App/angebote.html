@@ -9,10 +9,10 @@
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script>
 $.ajax({
-	url: "PATH/TO/WEBAPP/backend/angebote.php",
+	url: "http://localhost/Webapp%20-%20App/backend/angebote.php",
 	dataType:"json"}).success(function(data) {
 		for(var i = 0; i < data.length; i++) {
-			$('#content').append('<div class="contentRow"><img src="PATH/TO/IMAGES/' + data[i].productImage +'" alt=""' + data[i].productName + '/><div id="descSale' + i + '"><h3></h3><span class="redPrice"></span><div class="metaPrice"><span class="percent"></span><span class="whitePrice"></span></div><p style="clear:both;"></p></div><p style="clear:both;"></p></div>');	
+			$('#content').append('<div class="contentRow"><img src="http://localhost/webapp-backend/images/' + data[i].productImage +'" alt=""' + data[i].productName + '/><div id="descSale' + i + '"><h3></h3><span class="redPrice"></span><div class="metaPrice"><span class="percent"></span><span class="whitePrice"></span></div><p style="clear:both;"></p></div><p style="clear:both;"></p></div>');	
 			$('#descSale' + i + ' h3').append(data[i].productName);
 			$('#descSale' + i + ' .redPrice').append(data[i].redPrice);
 			$('#descSale' + i + ' .whitePrice').append(data[i].whitePrice);
@@ -28,11 +28,11 @@ $.ajax({
     
 </div>
 <div id="navigation">
-	<a href="#" class="icon" id="sales">Angebote</a>
-    <a href="#" class="icon" id="list">Einkaufsliste</a>
+	<a href="angebote.html" class="icon" id="sales">Angebote</a>
+    <a href="list.html" class="icon" id="list">Einkaufsliste</a>
     <a href="#" class="icon" id="shops">Shops</a>
-    <a href="#" class="icon" id="bbq">Grillwetter</a>
-    <a href="#" class="icon" id="more">Mehr</a>
+    <a href="bbqWeather.html" class="icon" id="bbq">Grillwetter</a>
+    <a href="more.html" class="icon" id="more">Mehr</a>
 </div>
 </body>
 </html>

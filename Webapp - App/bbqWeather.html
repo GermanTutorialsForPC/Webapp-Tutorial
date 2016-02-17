@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title>Frische Discount Webapp</title>
+    <link rel="stylesheet" href="styles/style.css" type="text/css"/>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        const ICONS = {sunny: "☀", cloudy: "☁", rainy: "☔", stromy: "♒", snowy: "☃"};
+
+        $(document).ready(function () {
+            $.getJSON("http://localhost/Webapp%20-%20App/backend/forecast.php", function( data ) {
+                //Min. 10° C
+                if(data.degree < 10 ) {
+                    $("#bbqBigField").addClass("bbqBad");
+                } else {
+                    $("#bbqBigField").addClass("bbqGood");
+                }
+                if( isWeatherBad( data ) ) {
+                    $("#bbqBigField").addClass("bbqBad");
+                } else {
+                    $("#bbqBigField").addClass("bbqGood");
+                }
+
+                $("#weatherLocation").html( data.location );
+                $("#weatherIcon").html(ICONS[data.weather]);
+                $("#weatherTemperatur").html(data.degree + "° C");
+            });
+        });
+
+        function isWeatherBad( data ) {
+            return data.weather == "rainy" || data.weather == "stromy" || data.weather == "snowy"
+        }
+
+    </script>
+
+</head>
+
+<body>
+<div id="content">
+    <h1>Grill Wetter</h1>
+
+    <div id="bbqBigField"></div>
+
+    <div id="weather">
+        <div id="weatherLocation" class="weatherCenter">Musterstadt</div>
+        <div id="weatherIcon" class="weatherCenter">☀</div>
+        <div id="weatherTemperatur" class="weatherCenter">21° C</div>
+    </div>
+
+</div>
+<div id="navigation">
+    <a href="angebote.html" class="icon" id="sales">Angebote</a>
+    <a href="list.html" class="icon" id="list">Einkaufsliste</a>
+    <a href="#" class="icon" id="shops">Shops</a>
+    <a href="bbqWeather.html" class="icon" id="bbq">Grillwetter</a>
+    <a href="more.html" class="icon" id="more">Mehr</a>
+</div>
+</body>
+</html>

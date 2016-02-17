@@ -251,3 +251,65 @@ body {
 		background-image:url(../images/more_active.svg);	
 	}
 }
+
+/**BBQ Weather**/
+#bbqBigField {
+	width: 50%;
+	margin: 0 auto;
+	background-image: url("../images/bbqWeather/bbq.svg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}
+
+#bbqBigField:before{
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+
+.bbqGood:after, .bbqBad:after {
+	font-size: 50px;
+	margin-top: -60px;
+	margin-right: 17.5%;
+	display: block;
+	float: right;
+}
+
+.bbqGood:after {
+	content: "✓";
+	color: #27ae60;
+}
+
+.bbqBad:after {
+	content: "✗";
+	color: #c0392b;
+}
+
+#weatherLocation {
+	font-size: 3em;
+	padding:10px;
+}
+
+#weatherIcon {
+	font-size: 5em;
+	padding: 20px;
+}
+
+#weatherTemperatur {
+	font-size: 1.5em;
+	padding:10px;
+}
+
+
+.weatherCenter {
+	text-align: center;
+}
+
+#map {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
